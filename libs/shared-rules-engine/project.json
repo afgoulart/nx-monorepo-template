@@ -1,0 +1,19 @@
+{
+  "name": "shared-rules-engine",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/shared-rules-engine/src",
+  "projectType": "library",
+  "tags": ["type:shared", "scope:shared"],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/shared-rules-engine",
+        "main": "libs/shared-rules-engine/src/index.ts",
+        "tsConfig": "libs/shared-rules-engine/tsconfig.lib.json",
+        "assets": ["libs/shared-rules-engine/*.md"]
+      }
+    }
+  }
+}

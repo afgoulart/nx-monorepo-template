@@ -1,0 +1,19 @@
+{
+  "name": "shared-event-client",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/shared-event-client/src",
+  "projectType": "library",
+  "tags": ["type:shared", "scope:shared"],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/shared-event-client",
+        "main": "libs/shared-event-client/src/index.ts",
+        "tsConfig": "libs/shared-event-client/tsconfig.lib.json",
+        "assets": ["libs/shared-event-client/*.md"]
+      }
+    }
+  }
+}

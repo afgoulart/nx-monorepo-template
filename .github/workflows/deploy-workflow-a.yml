@@ -1,0 +1,16 @@
+name: deploy-workflow-a
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - apps/workflow-a/**
+      - infra/workflow-a/**
+
+jobs:
+  deploy:
+    uses: ./.github/workflows/deploy-workflow.yml
+    with:
+      workflow_name: workflow-a
+    secrets: inherit

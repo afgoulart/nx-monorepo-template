@@ -1,0 +1,19 @@
+{
+  "name": "shared-fraud-engine",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/shared-fraud-engine/src",
+  "projectType": "library",
+  "tags": ["type:shared", "scope:shared"],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/shared-fraud-engine",
+        "main": "libs/shared-fraud-engine/src/index.ts",
+        "tsConfig": "libs/shared-fraud-engine/tsconfig.lib.json",
+        "assets": ["libs/shared-fraud-engine/*.md"]
+      }
+    }
+  }
+}
