@@ -1,4 +1,4 @@
-export type LogContext = Record<string, unknown>;
+export type LogContext = object;
 
 export interface Logger {
   info(message: string, context?: LogContext): void;

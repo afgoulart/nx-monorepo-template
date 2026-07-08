@@ -1,6 +1,11 @@
-
+node_modules/
+dist/
+coverage/
 .nx/installation
 .nx/cache
 .nx/workspace-data
 .nx/self-healing
 .nx/migrate-runs
+.terraform/
+*.tfstate
+*.tfstate.*
