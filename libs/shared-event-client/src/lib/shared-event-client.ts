@@ -12,13 +12,18 @@ export interface WorkflowRouting {
 
 export class WorkflowEventClient {
   constructor(
-    private readonly workflowQueues: Record<Proposta['workflow'], string>
+    private readonly workflowQueues: Partial<Record<Proposta['workflow'], string>>
   ) {}
 
   routeEvent(event: EventEnvelope): WorkflowRouting {
+    const queueName = this.workflowQueues[event.workflow];
+    if (!queueName) {
+      throw new Error(`No queue configured for workflow: ${event.workflow}`);
+    }
+
     return {
       workflow: event.workflow,
-      queueName: this.workflowQueues[event.workflow],
+      queueName,
     };
   }
 }

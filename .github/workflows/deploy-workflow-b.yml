@@ -10,6 +10,8 @@ on:
 
 jobs:
   deploy:
+    permissions:
+      contents: read
     uses: ./.github/workflows/deploy-workflow.yml
     with:
       workflow_name: workflow-b

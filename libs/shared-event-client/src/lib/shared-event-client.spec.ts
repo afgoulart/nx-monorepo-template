@@ -16,4 +16,14 @@ describe('sharedEventClient', () => {
       queueName: 'queue-b',
     });
   });
+
+  it('throws when queue is not configured', () => {
+    const client = new WorkflowEventClient({
+      'workflow-a': 'queue-a',
+    });
+
+    expect(() => client.routeEvent({ workflow: 'workflow-b', propostaId: 'p-2' })).toThrow(
+      'No queue configured for workflow: workflow-b'
+    );
+  });
 });

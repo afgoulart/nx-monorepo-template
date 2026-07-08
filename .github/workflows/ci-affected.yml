@@ -3,6 +3,9 @@ name: ci-affected
 on:
   pull_request:
 
+permissions:
+  contents: read
+
 jobs:
   affected:
     runs-on: ubuntu-latest
