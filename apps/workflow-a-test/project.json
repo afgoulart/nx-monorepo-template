@@ -1,0 +1,10 @@
+{
+  "name": "workflow-a-test",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "apps/workflow-a-test",
+  "tags": [
+    "scope:workflow-a",
+    "type:test"
+  ]
+}

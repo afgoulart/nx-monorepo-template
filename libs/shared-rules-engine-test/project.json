@@ -1,0 +1,10 @@
+{
+  "name": "shared-rules-engine-test",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/shared-rules-engine-test",
+  "tags": [
+    "scope:shared",
+    "type:test"
+  ]
+}
