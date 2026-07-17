@@ -6,5 +6,12 @@
   "tags": [
     "scope:workflow-b",
     "type:test"
-  ]
+  ],
+  "targets": {
+    "test": {
+      "options": {
+        "noBuild": false
+      }
+    }
+  }
 }

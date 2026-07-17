@@ -3,5 +3,15 @@
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
   "sourceRoot": "libs/shared-domain-test",
-  "tags": ["scope:shared", "type:test"]
+  "tags": [
+    "scope:shared",
+    "type:test"
+  ],
+  "targets": {
+    "test": {
+      "options": {
+        "noBuild": false
+      }
+    }
+  }
 }
