@@ -1,0 +1,17 @@
+{
+  "name": "shared-validation-test",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/shared-validation-test",
+  "tags": [
+    "scope:shared",
+    "type:test"
+  ],
+  "targets": {
+    "test": {
+      "options": {
+        "noBuild": false
+      }
+    }
+  }
+}

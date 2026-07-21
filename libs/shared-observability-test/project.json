@@ -1,0 +1,17 @@
+{
+  "name": "shared-observability-test",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/shared-observability-test",
+  "tags": [
+    "scope:shared",
+    "type:test"
+  ],
+  "targets": {
+    "test": {
+      "options": {
+        "noBuild": false
+      }
+    }
+  }
+}

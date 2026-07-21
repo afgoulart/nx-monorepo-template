@@ -1,0 +1,20 @@
+name: Deploy workflow-a
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'apps/workflow-a/**'
+      - 'infra/workflow-a/**'
+      # Shared libraries are a real dependency of the app, so a change to them
+      # must redeploy the workflow. This intentionally means a shared-lib change
+      # can trigger every workflow's deploy.
+      - 'libs/**'
+
+jobs:
+  deploy:
+    uses: ./.github/workflows/deploy-workflow.yml
+    with:
+      workflow_name: workflow-a
+    secrets:
+      AWS_ROLE_ARN: ${{ secrets.AWS_ROLE_ARN }}
