@@ -1,0 +1,12 @@
+{
+  "name": "workflow-b",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/workflow-b",
+  "tags": [
+    "scope:workflow-b",
+    "type:app"
+  ],
+  "// targets": "to see all targets run: nx show project apps-workflow-b --web",
+  "targets": {}
+}

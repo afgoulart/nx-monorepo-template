@@ -1,0 +1,32 @@
+name: CI (affected)
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  affected:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # Nx needs full history to diff against the base branch.
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Install dependencies
+        run: npm ci
+
+      # Only lint/build/test the projects affected by this PR (and their
+      # dependents). A change in libs/shared-* fans out to every workflow that
+      # depends on it; a change in one workflow never affects the other.
+      - name: Nx affected
+        run: npx nx affected -t lint,test,build --base=origin/main --head=HEAD

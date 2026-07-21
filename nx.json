@@ -6,50 +6,53 @@
       "sharedGlobals"
     ],
     "production": [
-      "default",
-      "!{projectRoot}/**/?(*.)+(spec|test).[jt]s?(x)?(.snap)",
-      "!{projectRoot}/tsconfig.spec.json",
-      "!{projectRoot}/.eslintrc.json",
-      "!{projectRoot}/eslint.config.mjs"
+      "default"
     ],
     "sharedGlobals": []
   },
-  "plugins": [
-    {
-      "plugin": "@nx/js/typescript",
-      "options": {
-        "typecheck": {
-          "targetName": "typecheck"
-        },
-        "build": {
-          "targetName": "build",
-          "configName": "tsconfig.lib.json",
-          "buildDepsName": "build-deps",
-          "watchDepsName": "watch-deps"
-        }
-      }
-    },
-    {
-      "plugin": "@nx/vitest",
-      "options": {
-        "testTargetName": "test",
-        "ciTargetName": "test-ci",
-        "testMode": "watch"
-      }
-    },
-    {
-      "plugin": "@nx/eslint/plugin",
-      "options": {
-        "targetName": "lint"
-      }
-    }
-  ],
-  "analytics": false,
   "targetDefaults": {
+    "build": {
+      "dependsOn": [
+        "^build"
+      ]
+    },
     "test": {
       "dependsOn": [
         "^build"
       ]
     }
-  }
+  },
+  "plugins": [
+    {
+      "plugin": "@nx-dotnet/core",
+      "options": {
+        "moduleBoundaries": [
+          {
+            "sourceTag": "scope:workflow-a",
+            "onlyDependOnLibsWithTags": ["scope:workflow-a", "scope:shared"]
+          },
+          {
+            "sourceTag": "scope:workflow-b",
+            "onlyDependOnLibsWithTags": ["scope:workflow-b", "scope:shared"]
+          },
+          {
+            "sourceTag": "scope:shared",
+            "onlyDependOnLibsWithTags": ["scope:shared"]
+          },
+          {
+            "sourceTag": "type:app",
+            "onlyDependOnLibsWithTags": ["type:lib"]
+          },
+          {
+            "sourceTag": "type:lib",
+            "onlyDependOnLibsWithTags": ["type:lib"]
+          },
+          {
+            "sourceTag": "type:test",
+            "onlyDependOnLibsWithTags": ["type:lib", "type:app", "type:test"]
+          }
+        ]
+      }
+    }
+  ]
 }
